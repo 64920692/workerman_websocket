@@ -24,7 +24,9 @@
  * 主要是处理 onMessage onClose 
  */
 use \GatewayWorker\Lib\Gateway;
-
+require_once  dirname(__FILE__) . '/Config/SystemConfig.inc.php';
+require_once dirname(__FILE__) . '/Config/PathConfig.php';
+include_once(PathConfig::getLibsPath() . 'cache/ICache.php');
 class Events
 {
    
