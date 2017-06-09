@@ -40,7 +40,7 @@
     {
       terId = '<?php echo isset($_GET['terId']) ? $_GET['terId'] : "100000000"?>';
         // 登录
-        var login_data = '{"type":"login","terId":"'+terId+'"}';
+        var login_data = '{"type":"login","terId":"'+terId+'","h5":"1"}';
         console.log("websocket握手成功，发送登录数据:"+login_data);
         ws.send(login_data);
     }

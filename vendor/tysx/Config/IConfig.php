@@ -1,4 +1,6 @@
 <?php
+namespace TYSX\Config;
+use TYSX\Config\IniConfig;
 class IConfig {
 
     private static $_instance = null;
@@ -13,7 +15,6 @@ class IConfig {
     }
 
     private static function getObject($type) {
-        include_once(PathConfig::getLibsPath() . 'config/IniConfig.php');
         if (self::$_instance === null || !isset(self::$_instance[$type])) {
             $confobj = new IniConfig();
             self::$_instance[$type] = $confobj;
@@ -23,7 +24,7 @@ class IConfig {
 
     public static function getConfig($sec, $type) {
         if (self::$_confdata == null || !isset(self::$_confdata[$type])) {
-            $filePath = sys_config::getConfigPath();
+            $filePath = \sys_config::getConfigPath();
             $filename = $filePath . $type . ".ini";
             $obj = self::getObject($type);
             $data = $obj->getConfig($filename);

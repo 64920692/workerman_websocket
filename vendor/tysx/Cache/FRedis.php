@@ -1,5 +1,5 @@
 <?php
-
+namespace TYSX\Cache;
 /**
  * Created by PhpStorm.
  * User: wyr
@@ -56,7 +56,7 @@ class FRedis
         if (!isset($this->_REDIS)) {
 
             if (class_exists('redisProxy')) {
-                $this->_REDIS = new redisProxy();
+                $this->_REDIS = new \redisProxy();
                 $this->_REDIS->connect($this->_HOST, $this->_PORT);
             } else {
                 $this->_REDIS = new Redis();

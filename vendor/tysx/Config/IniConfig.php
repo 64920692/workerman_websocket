@@ -1,68 +1,7 @@
 <?php
 
 //配置文件读取
-/*
-  $o=new IniConfig();
-  $o->parse('t.ini');
-
-  ini file
-  [def]
-  db.connection = database
-  hostname = live
-  db.pwd.pwd =4
-  [staging : def]
-  hostname[] = staging
-  db.host =host
-  db.pwd.name =1
-  ;db.connection = 123
-
-  ;db.connection =456
-
-
-  =>
-
-  Array
-  (
-  [def] => stdClass Object
-  (
-  [db] => stdClass Object
-  (
-  [connection] => database
-  [pwd] => stdClass Object
-  (
-  [pwd] => 4
-  )
-
-  )
-
-  [hostname] => live
-  )
-
-  [staging] => stdClass Object
-  (
-  [hostname] => Array
-  (
-  [0] => staging
-  )
-
-  [db] => stdClass Object
-  (
-  [host] => host
-  [pwd] => stdClass Object
-  (
-  [name] => 1
-  [pwd] => 4
-  )
-
-  [connection] => database
-  )
-
-  )
-
-  )
-
- */
-
+namespace TYSX\Config;
 class IniConfig {//extends IConfig {
 
     private $_parentFlag = ':'; //继承字符标识，仅用于section节
@@ -93,7 +32,7 @@ class IniConfig {//extends IConfig {
     }
 
     private function parseVal($val) {
-        $o = new stdClass();
+        $o = new \stdClass();
         if (is_array($val)) {
             foreach ($val as $vk => $vv) {
                 $vks = explode($this->_classFlag, $vk);
